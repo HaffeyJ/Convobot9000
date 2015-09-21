@@ -1,0 +1,118 @@
+################
+#
+# Welcome to the ConvoBot9000's code. This is a project by CS1 at Gilmour Academy
+# Comments are always above the line of code they are decribing. 
+# The code will be placed on a website where you can post questions
+#
+################
+
+#this is used to pick a random number in the convoStarter method
+import random
+
+#This is the start of our object, a class named ConvoBot
+class ConvoBot9000:
+  
+  #CLASS VARIABLES
+  #user hold the player's name
+  user = "" 
+  
+  #oldtopics is a list of words that have been mentioned already
+  #people could check to see if keywords from another person's function
+  #has been mentioned and bring that up in the conversation
+  oldtopics = []
+  
+  #CONSTRUCTOR - what's run any time you have an instantiated class
+  # static classes don't have constructors, they just chill ready to be called
+  def __init__(self):
+     #input is replaced by the value the user types in and suck inside the instance's user var
+     self.user = input("I am ConvoBot9000. What is your name?")
+     print "I'm happy to talk with you, " + self.user + "."
+
+  ##############
+  #MR'AS EXAMPLE ASSIGNMENT
+  # I take two parameters, the name of the instance, which will be littlebotdude, and...
+  # the list of words that the user typed, broken down into a helpful object called an array
+  ##############
+  def checkFamily(self, usersays):
+    
+    #build a list of keyterms. Don't use "familly"
+    family = ["brother", "sister", "uncle", "mother", "family", "sis", "bro", "son", "daughter", "wife", "mom", "dad"]
+    
+    #This is a fancy Python trick to store the common words from what the user says and also our topic. This is where it pays off to have converted the usersays into an array
+    common = [x for x in usersays if x in family]
+    
+    #if common is empty it's as good as saying "False" and your method stops here
+    if common:
+      
+      #you can say reactions that cover the whole topic
+      print "You know, I like talking about families."
+      
+      #you can see if they mentioned a keyword
+      if "brother" in common:
+        print "Well, my brother is a laggy. He needs a hard boot."
+        
+        #whereever possible, add the keywords to the master list so other groups can interact with your group
+        self.oldtopics.append("brother")
+    
+  #def YOUR METHOD GOES HERE
+  #You will "Save a copy" or "Remix" this trinket and add the method
+  #assigned to you below, (I'll cover family). Using the above example, you will be taking
+  #two parameters, self and the list of words the user submits.
+  #You need to write a list of keywords and then compare with the list of
+  #words handed to you in the method call. If there's a common, you need
+  #to then start testing and react differently depending on what word they said
+  #Email me with questions!
+
+#######
+#
+# THE APP STARTS AFTER THIS
+# No longer are we defining the ConvoBot class.
+# Now we're onto the main app or start of the control flow
+# (control flow = where the app starts and what directs the computer from one line of code to another)
+#
+#######
+
+#this creates an instance of the ConvoBot9000 in a spot in memory called "littlebotdude"
+#it knows what a ConvoBot9000 is and what to do when we start a new one because of all the code above this
+littlebotdude = ConvoBot9000()
+
+#this is an endless loop so if no keywords are caught then it just goes back to the start
+while (True):
+  
+  #Sebastian: the user's response after you start a convo off of a random starter sentence
+    #Be sure you have random options that might trigger each of the other groups' keywords
+    #replace this with: usersays = littlebotdude.convoStarter() 
+  usersays = input("What's new with you?").lower().split()
+  
+  #Mr A: this is the example I gave for the project. Have at it!
+  littlebotdude.checkFamily(usersays)
+  
+  #Zach & Bradley - respond to keywords like "hate", "frustrated", "salty", "angry"
+  #littlebotdude.checkAngry(usersays)
+  
+  # - respond to keywords like "aww", "thanks", "awesome", "cool", "beautiful"
+  #littlebotdude.checkSweet(usersays)
+  
+  #Eric & Keith - respond to keywords like "lancer", "school", "study", "commons", "lunch"
+  #littlebotdude.checkGilmour(usersays)
+  
+  #Bobby & Jack - respond to keywords like "bored", "boring", "meh", "zzzz", "lame"
+  #littlebotdude.checkBored(usersays)
+  
+  #Justin & Anthony - respond warmly to keywords like "bummed", "tired", "lonely", "sad"
+  #littlebotdude.checkSad(usersays)
+  
+  #Spencer & Annalise - respond to keywords like "pumped", "excited", "thrilled", "love"
+  #littlebotdude.checkHappy(usersays)
+  
+  #Sydney & Alex - respond to keywords like "CS1", "computer", "programming", "instance"
+  #littlebotdude.checkCS1(usersays)
+  
+  #Nick & John - respond to keywords like "you", "ConvoBot9000", "intelligence", "understand"
+  #littlebotdude.checkCurious(usersays)
+  
+  #Dom & Matt - respond to keywords like "games", "console", "xbox", "steam", "play", "soccer"
+  #littlebotdude.checkGames(usersays)
+  
+  #Connor & Jon - respond politely to keywords like "date", "buddy", "bff", "girl", "boy", "crush"
+  #littlebotdude.checkFriend(usersays)
