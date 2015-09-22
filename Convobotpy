@@ -58,6 +58,10 @@ class ConvoBot9000:
     bored = ["bored", "boring", "meh", "zzzz", "lame"]
     common = [x for x in usersays if x in bored]
     
+    if common:
+      print "Im tired"
+      self.oldtopics.append("bored")
+    
   #You will "Save a copy" or "Remix" this trinket and add the method
   #assigned to you below, (I'll cover family). Using the above example, you will be taking
   #two parameters, self and the list of words the user submits.
