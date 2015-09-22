@@ -104,7 +104,7 @@ while (True):
   #littlebotdude.checkGilmour(usersays)
   
   #Bobby & Jack - respond to keywords like "bored", "boring", "meh", "zzzz", "lame"
-  #littlebotdude.checkBored(usersays)
+  littlebotdude.checkBored(usersays)
   
   #Justin & Anthony - respond warmly to keywords like "bummed", "tired", "lonely", "sad"
   #littlebotdude.checkSad(usersays)
